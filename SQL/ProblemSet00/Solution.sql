@@ -159,6 +159,19 @@ select * from employee e join dept d on e.dep_id=d.dep_id where depmanager="nata
 
 11)Display the Employee name,Employee count,Dep name,Dept manager in the Health department
 
+select e.name,d.depname,d.depmanager from employee e join dept d on e.dep_id=d.dep_id where depname="health";
+
++----------------+---------+------------+
+| name           | depname | depmanager |
++----------------+---------+------------+
+| MARTIN TREDEAU | HEALTH  | TIM ARCHER |
+| PAUL VINCENT   | HEALTH  | TIM ARCHER |
+| TIM ARCHER     | HEALTH  | TIM ARCHER |
+| BRAD MICHAEL   | HEALTH  | TIM ARCHER |
+| EDWARD CANE    | HEALTH  | TIM ARCHER |
+| JOHN HELLEN    | HEALTH  | TIM ARCHER |
++----------------+---------+------------+
+
 12)Display the Department id,Employee ids and Manager ids for the Communications department
 
 select e.e_id,d.dep_id,e.managerid from employee e join dept d on e.dep_id=d.dep_id where depname="communications";
@@ -239,6 +252,11 @@ select dep_id,count(*) from employee where dep_id="d04";
 +--------+----------+
 
 19)Select all department details of the Department with Maximum Employees
+
+select t.dep_id,d.depname,t.cnt from (select dep_id, cnt , dense_rank() over(order by cnt desc) as ran from (select dep_id,count(*) as cnt from employee group by dep_id)) as t inner join dept d on t.dep_id=d.dep_id where ran=1;
+
+D01|HEALTH|6
+D02|COMMUNICATIONS|6
 
 20)Select the Employees who has Tim Cook as their manager
 
