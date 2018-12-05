@@ -3,12 +3,19 @@
 
 /* <Question from the ProblemSet 01> */
 
-
+creating hotel table
 create table Hotel(Hotel_No varchar2(5) constraint hkey primary key,Name varchar2(15),City varchar2(15));
+
+creating rooms table
 create table Room(Room_No  number(5) constraint rkey primary key,Hotel_No varchar2(5) constraint hfkey references Hotel(Hotel_No),Type varchar2(2),Price double(5,2));
+
+creating guest table
 create table Guest(Guest_No varchar2(5) constraint gkey primary key,Name varchar2(15),City varchar2(15));
+
+creating booking table
 create table Booking(Hotel_No varchar2(5) constraint hf1key references Room(Hotel_No),Guest_No  varchar2(5) constraint gfkey references Guest(Guest_No),Date_From date,Date_To date,Room_No number(5) constraint rfkey references Room(Room_No));
 
+inserting hotel values
 insert into Hotel values('H111','Empire Hotel','New York');
 insert into Hotel values('H235','Park Place','New York');
 insert into Hotel values('H432','Brownstone Hotel','Toronto');
@@ -16,6 +23,7 @@ insert into Hotel values('H498','James Plaza','Toronto');
 insert into Hotel values('H193','Devon Hotel','Boston');
 insert into Hotel values('H437','Clairmont Hotel','Boston');
 
+inserting room values
 insert into Room values(313,'H111','S',145.00);
 insert into Room values(412,'H111','N',145.00);
 insert into Room values(1267,'H235','N',175.00);
@@ -29,6 +37,7 @@ insert into Room values(1201,'H193','N',175.00);
 insert into Room values(257,'H437','N',140.00);
 insert into Room values(223,'H437','N',155.00);
 
+inserting guest values
 insert into Guest values('G256','Adam Wayne','Pittsburgh');
 insert into Guest values('G367','Tara Cummings','Baltimore');
 insert into Guest values('G879','Vanessa Parry','Pittsburgh');
@@ -36,6 +45,7 @@ insert into Guest values('G230','Tom Hancock','Philadelphia');
 insert into Guest values('G467','Robert Swift','Atlanta');
 insert into Guest values('G190','Edward Cane','Baltimore');
 
+inserting booking values
 insert into Booking values('H111','G256','1999-08-10','1999-08-15',412);
 insert into Booking values('H111','G367','1999-08-18','1999-08-21',412);
 insert into Booking values('H235','G879','1999-09-05','1999-09-12',1267);
