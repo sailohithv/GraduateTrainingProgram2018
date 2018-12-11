@@ -21,6 +21,8 @@ select sum(pi.weight) from picked pi inner join plant p on pi.plantFK=p.plantid 
 
  select p.name from plant p inner join planted pd on p.plantid=pd.plantFK where seeds<20 and date='14-APR-2012';
 
+Carrot
+
 5.List the amount of sunlight and water to all plants with names that start with letter 'c' or letter 'r'.
 
  select name,sunlight,water from plant where name like 'C%' or name like 'R%';
@@ -44,6 +46,11 @@ select sum(pi.weight) from picked pi inner join plant p on pi.plantFK=p.plantid 
 
  select p.name,sum(pi.amount)/sum(pd.seeds) as average from picked pi inner join planted pd on pi.plantFK=pd.plantFK inner  join plant p on p.plantid=pi.plantFK group by p.name;
 
+Carrot|0
+Corn|2
+Radish|0
+Tomato|0
+                                                                                                                         
 8.Write a valid SQL statement that would produce a result set like the following:
 
  name |  name  |    date    | amount 
@@ -56,3 +63,9 @@ select sum(pi.weight) from picked pi inner join plant p on pi.plantFK=p.plantid 
 9.Find out persons who picked from the same location as he/she planted.
 
  select g.name from gardener g inner join planted pd on pd.gardenerFK=g.gardenerid inner join picked pi on  pi.plantFK=pd.plantFK where pi.locationFK=pd.locationFK;
+
+ Mother
+Father
+Father
+Tim
+Tim                                                                                                                        
