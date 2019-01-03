@@ -1,0 +1,194 @@
+- ProblemSet02, January 03 2018
+-- sai.lohith.vasireddi@accenture.com
+
+/* <Question from the ProblemSet 03> */
+
+
+1. GCD
+
+a=int(raw_input())
+b=int(raw_input())
+def gcd():
+  la=[]
+  lb=[]
+
+  for i in range(1,a+1):
+      if a%i==0:
+          la.append(i)
+          print la
+
+  for i in range(1,b+1):
+      if b%i==0:
+          lb.append(i)
+          print lb
+
+  s1=set(la)
+  s2=set(lb)
+
+  cf=s1.intersection(s2)
+
+  gcd=max(cf)
+
+  print gcd
+
+gcd()
+
+2.
+
+a=int(raw_input())
+b=int(raw_input())
+
+div=a/b
+if (a%b==0) and (div%b==0):
+    print "True"
+else:
+    print "False"
+
+
+3.
+
+Iterative factorial
+
+n=int(raw_input())
+
+def ifact():
+    
+    fact=1
+    for i in range(n,0,-1):
+        fact*=i
+    print  "iterative facatorial:",fact
+ifact()
+
+recursive factorial
+
+def rfact(n):
+    if n>=1:
+        return n*rfact(n-1)
+    else:
+        return 1
+
+print rfact(n)
+
+
+4.
+
+a=raw_input()
+b=int(a)
+sum=0
+l=len(a)
+for i in range(l):
+    sum+=(b%10)*pow(2,i)
+    b=b/10
+
+print sum
+
+
+5.
+
+class Networkerror(RuntimeError):
+  def __init__(self, arg):
+    self.args = arg
+try:
+  sum1=0
+  s=raw_input()
+  for i in s:
+    if(i.isdigit()):
+      sum1+=int(i)
+    else:
+      continue
+  if sum1==0:
+    raise ValueError("no number found")
+  else:
+    print sum1
+except ValueError as e:
+   print("".join(e.args))
+
+
+6.
+
+l=[1,3,5,7,9]
+c = 0
+try:
+  for i in range(len(l)):
+    if l[i]%2==0:
+      print l[i]
+      break
+    else:
+      c+=1
+  if c == len(l):
+ 
+    raise ValueError("no even number found")
+
+except ValueError as e:
+  print("".join(e.args))
+
+
+7.
+
+a=raw_input()
+s=""
+for i in a:
+    if (i.isalpha())==True:
+        s+=i
+    else:
+        pass
+s1=s.lower()
+s2=s1
+s1=list(s1)
+rev=""
+for i in range(len(s1)-1,-1,-1):
+    rev+=s1[i]
+
+
+if (s2==rev):
+   
+    print "Palindrome"
+else:
+    print "Not a Palindrome"
+
+
+
+9.a.
+
+n=int(raw_input())
+app=n/float(2)
+ba=(app+(n/app))/float(2)
+while app!=ba:
+    app=ba
+    ba=(app+(n/app))/float(2)
+print ba
+
+
+9.b.
+
+test = []
+test1 = []
+def nsr():
+    for n in range(1,10):
+        app=n/float(2)
+        ba=(app+(n/app))/float(2)
+        while app!=ba:
+            app=ba
+            ba=(app+(n/app))/float(2)
+        nsr=ba
+
+        test.append(nsr)
+       
+nsr()
+
+
+def msr():
+    for n in range(1,10):
+        msr=pow(n,0.5)
+        test1.append(msr)
+    
+msr()
+
+
+print"----------------------------------------------------------"
+print "Number|","N.Square Root|","\t","M.Square Root|","\t","Difference"
+print"----------------------------------------------------------"
+for i in range(min(len(test),len(test1))):
+    
+    print "   ",i+1,"|\t","%.11f|" %test[i],"\t","%.11f|" %test1[i],"\t",test[i]-test1[i]
+print"----------------------------------------------------------"
