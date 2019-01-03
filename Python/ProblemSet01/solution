@@ -1,0 +1,94 @@
+- ProblemSet01, January 03 2019
+-- sai.lohith.vasireddi@accenture.com
+
+/* <Question from the ProblemSet 01> */
+
+
+1.
+
+s = raw_input()
+num = map(int, s.split())
+liO=[]
+liE=[]
+for i in num:
+    if i%2!=0:
+        liO.append(i)
+    else:
+        liE.append(i)
+
+if len(liE)==10:
+    print "There are no odd numbers"
+
+elif len(liE)<10:
+    print max(liO)
+
+2.
+    
+s="cigna"
+print s.rjust(70)
+
+3.
+
+s = raw_input()
+num = map(int, s.split())
+liO=[]
+liE=[]
+for i in num:
+    if i%2!=0:
+        liO.append(i)
+    else:
+        liE.append(i)
+
+if len(liE)==10:
+    print "There are no odd numbers"
+
+elif len(liE)<10:
+    print max(liO)
+
+
+5.
+
+import math
+
+def find_result(integer):
+    
+    
+    result_list = []
+    for pwr in range(1, 625):
+        base_root_value = integer**(1.0/pwr)
+        if int(math.ceil(base_root_value))**pwr == integer:
+            pair_tuple = tuple([int(math.ceil(base_root_value)), pwr])
+            result_list.append(pair_tuple)
+    return result_list
+
+try:
+    integer = int(input('Enter a integer:'))
+    print(find_result(integer))
+except:
+    print('Invalid input. Try again')
+
+
+
+6.
+
+s=raw_input()
+a=s.replace(','," ")
+b=a.split()
+sum=0
+for i in b:
+	sum+=float(i)
+print sum
+
+
+7.
+
+s1=raw_input()
+s2=raw_input()
+def substr():
+    if (s1 in s2) or (s2 in s1):
+        print "True"
+    else:
+        print "False"
+substr()
+
+
