@@ -1,0 +1,202 @@
+- ProblemSet00, January 3 2019
+-- sai.lohith.vasireddi@accenture.com
+
+/* <Question from the ProblemSet 04> */
+
+1.
+
+class Shape:
+    def __init__(self):
+        pass
+    def area():
+        area=0
+
+
+class Square(Shape):
+    def __init__(self, l):
+        self.l=l
+    def area(self):
+        print self.l*self.l
+
+
+a=int(raw_input())
+obj=Square(a)
+obj.area()
+
+
+2.
+
+class Person:
+
+    def getGender(self):
+        return ""
+
+class Male(Person):
+
+    def getGender(self):
+        return "Male"
+
+class Female(Person):
+
+    def getGender(self):
+        return "Female"
+
+
+
+obj1=Male()
+print obj1.getGender()
+obj2=Female()
+print obj2.getGender()
+
+
+3.
+
+class money:
+    def __init__(self,dollar,cent):
+        self.dollar=dollar
+        self.cent=cent
+    def repr(self):
+        if int(self.cent)<=99:
+            money=(self.dollar,self.cent)
+            self.value=float(".".join(money))
+            print("the currency is:",self.value)
+        else:
+            cen=float(self.cent)/100
+            self.value=float(self.dollar)+cen
+            print("the currency is:",self.value)
+        self.add()
+        print("money in rupees:",self.rs)
+        print("money in euros:",self.euro)
+        print("money in yen:",self.riyal)
+
+    def add(self):
+        self.rs=self.value*72.42
+        self.euro=self.value*0.87
+        self.riyal=self.value*3.75
+
+
+dol=input("enter the dollar value")
+cent=input("enter the cent value")
+obj=money(dol,cent)
+obj.repr()
+
+
+4.
+
+def spaces(s):
+	str1=""
+	for j in range(s):
+		str1=str1+" "
+	return str1
+def stars(star):
+	st=""
+	for j in range(star):
+		st=st+"*"
+	return st
+			
+
+s=input("enter the rows")	
+star=2
+for i in range(s):
+	strA=spaces(s-1)
+	strB=stars(star)
+	s=s-1
+	star=star+2
+	if i==3:
+            pass
+        else:
+            print(strA+strB)
+
+
+6.
+
+class temperature:
+    def __init__(self, temperature):
+        pass
+    def str(self):
+        pass
+    def abovefreezing(self):
+        pass
+    def contofahren(self):
+        pass
+    def contocelsius(self):
+        pass
+    def contokelvin(self):
+        pass
+    
+class fahrenheit(temperature):
+    def __init__(self, temperature):
+        self.temp = temperature
+    def str(self):
+        return self.temp
+    def abovefreezing(self):
+        if self.temp>32:
+            return "true"
+        else:
+            return "false"
+    def contofahren(self):
+        return self.temp
+    def contocel(self):
+        cel = ((self.temp)-32)/1.8
+        return cel
+    def contokel(self):
+        kel = (((self.temp)-32)/1.8)+273.15
+        return kel
+    
+class celsius(temperature):
+    def __init__(self, temperature):
+        self.temp = temperature
+    def str(self):
+        return self.temp
+
+    def abovefreezing(self):
+        if self.temp>0:
+            return "true"
+        else:
+            return "false"
+    def contofahren(self):
+        fah = ((self.temp)*1.5)+32
+        return fah
+    def contocel(self):
+        return self.temp
+    def contokel(self):
+        kel = self.temp + 273.15
+        
+class kelvin(temperature):
+    def __init__(self, temperature):
+        self.temp = temperature
+    def str(self):
+        return self.temp
+    def abovefreezing(self):
+        if self.temp >= 273:
+            return "true"
+        else:
+            return "false"
+    def contofahren(self):
+        a = 9 / 5.0
+        return ((self.temp-273.15)*1.8)+32
+    def contocel(self):
+        cel = self.temp - 273.15
+        return cel
+    def contokel(self):
+        return self.temp
+    
+temp=int(input("enter the temperature"))
+obj=fahrenheit(temp)
+obj1=celsius(temp)
+obj2=kelvin(temp)
+print(obj.str())
+print(obj1.str())
+print(obj2.str())
+print("is farenhiet above freezing ", obj.abovefreezing())
+print("is celcius above freezing ", obj1.abovefreezing())
+print("is kelvin above freezing ", obj2.abovefreezing())
+print("fahrenheit", obj.contofahren())
+print("farenheit in celsius ", obj.contocel())
+print("farenheit in kelvin ", obj.contokel())
+print("celsius", obj1.contocel)
+print("celsius in farenheit", obj1.contofahren())
+print("celcius in kelvin ", obj1.contokel())
+print("kelvin", obj2.contokel())
+print("kelvin in farenheit ", obj2.contofahren())
+print("kelvin in celcius", obj2.contocel())
