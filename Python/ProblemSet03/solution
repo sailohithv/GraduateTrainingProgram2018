@@ -4,16 +4,14 @@
 /* <Question from the ProblemSet 03> */
 
 
-1.
+1. A step size of -1 goes through the word backwards, so the slice [::-1] generates a reversed string. 
+   Use this idiom to write a one-line version of is_palindrome
 
 s=raw_input()
 def is_palin(s):
     
     rs=s[::-1]
     
-    count = 0
-    t="is palindrome"
-    f="not a palindrome"
     if s==rs:
         print "is palindrome"
     else:
@@ -22,7 +20,10 @@ def is_palin(s):
 is_palin(s)
 
 
-2.
+2. Write a function called rotate_word() that takes a string and an integer as parameters, and that returns a new string that contains 
+   the letters from the original string "rotated" by the given amount. For example, "cheer" rotated by 7 is "jolly" and "melon" rotated
+   by -10 is "cubed". You might want to use the built-in functions ord, which converts a character to a numeric code, and chr, 
+   which converts numeric codes to characters.
 
 s=raw_input()
 n=int(raw_input())
@@ -36,7 +37,10 @@ def rotate_word():
 print rotate_word()
 
 
-3.
+3. In 1939 Ernest Vincent Wright published a 50,000 word novel called Gadsby that does not contain the letter "e."
+   Since "e" is the most common letter in English, that’s not easy to do. In fact, it is difficult to construct a solitary thought 
+   without using that most common symbol. It is slow going at first, but with caution and hours of training you can gradually gain facility. All right, I’ll stop now.
+   Write a function called has_no_e that returns True if the given word doesn’t have the letter "e" in it.
 
 s=raw_input()
 
@@ -53,7 +57,7 @@ def has_no_e():
 print has_no_e()
 
 
-4.
+4. Modify the above program to print only the words that have no “e” and compute the percentage of the words in the list have no “e.”
 
 s=raw_input()
 def no_e():
@@ -73,7 +77,8 @@ def no_e():
 no_e()
 
 
-5.
+5. Write a function named avoids that takes a word and a string of forbidden letters, and that returns True if the word doesn’t use 
+   any of the forbidden letters.
 
 word=raw_input()
 string1=raw_input()
@@ -89,7 +94,8 @@ def avoids():
 avoids()
 
 
-6.
+6. Modify your program to prompt the user to enter a string of forbidden letters and then print the number of words that don’t contain 
+   any of them. Can you find a combination of 5 forbidden letters that excludes the smallest number of words?
 
 s=raw_input()
 string1=raw_input()
@@ -110,7 +116,8 @@ def avoids():
 avoids()
 
 
-7.
+7. Write a function named using_only() that takes a word and a string of letters, and that returns True if the word contains 
+   only letters in the list. Can you make a sentence using only the letters acefhlo? Other than "Hoe alfalfa?"
 
 s=raw_input()
 string1=raw_input()
@@ -137,7 +144,8 @@ def only():
 only()
 
 
-8.
+8. Write a function called is_abecedarian that returns True if the letters in a word appear in alphabetical order (double letters are ok). 
+   How many abecedarian words are there? (i.e) "Abhor" or "Aux" or "Aadil" should return "True" Banana should return "False"
 
 s=raw_input()
 
@@ -151,7 +159,9 @@ def is_abecedarian():
 print is_abecedarian()
 
 
-9.
+9. Write a function called is_sorted that takes a list as a parameter and returns True if the list is sorted in ascending order and False
+   otherwise. You can assume (as a precondition) that the elements of the list can be compared with the relational operators <, >, etc. 
+   For example, is_sorted([1,2,2]) should return True and is_sorted(['b','a']) should return False.
 
 s = raw_input()
 li = map(str, s.split())
@@ -167,7 +177,8 @@ def is_sorted():
 print is_sorted()
 
 
-10.
+10. Two words are anagrams if you can rearrange the letters from one to spell the other.
+    Write a function called is_anagram that takes two strings and returns True if they are anagrams.
 
 from collections import Counter
 
