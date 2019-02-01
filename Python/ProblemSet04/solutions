@@ -3,7 +3,8 @@
 
 /* <Question from the ProblemSet 04> */
 
-1.
+1. Define a class named Shape and its subclass Square. The Square class has an init function which takes a length as argument. 
+   Both classes have a area function which can print the area of the shape where Shape's area is 0 by default.
 
 class Shape:
     def __init__(self):
@@ -24,7 +25,8 @@ obj=Square(a)
 obj.area()
 
 
-2.
+2. Define a class Person and its two child classes: Male and Female.All classes have a method "getGender" which can print 
+   "Male" for Male class and "Female" for Female class.
 
 class Person:
 
@@ -49,7 +51,10 @@ obj2=Female()
 print obj2.getGender()
 
 
-3.
+3. Design and implement a Money class that stores monetary values in dollars and cents. Special method init should have the following 
+   function header, def init(self, dollars, cents) Include special method repr (str) for displaying values 
+   in dollars and cents: $ 0.45, $ 1.00, $ 1.25. Also include special method add, and three getter methods that each
+   provide the monetary value in another currency. Choose any three currencies to convert to.
 
 class money:
     def __init__(self,dollar,cent):
@@ -81,7 +86,14 @@ obj=money(dol,cent)
 obj.repr()
 
 
-4.
+4. Write both a nonrecursive and recursive function that displays the rows of asterisks given below,
+
+            **
+	   ****
+          ******
+        **********
+       ************
+      **************
 
 def spaces(s):
 	str1=""
@@ -108,8 +120,27 @@ for i in range(s):
             print(strA+strB)
 
 
-6.
+6. Develop an abstract class named Temperature that stores a single temperature. The class should have the following function header for special method init,
+def __init__(self, temperature)
+	'''The abstract class should contain the following methods:
+	_str__ — should return a string of the form “75 degrees Fahrenheit”
+	aboveFreezing() — returns True if temperature above the freezing point
+	convertToFahren — returns a new Temperature object converted to degrees Fahrenheit
+	convertToCelsius — returns a new Temperature object converted to degrees Celsius
+	convertToKelvin — returns a new Temperature object converted to degrees Kelvin	
+	'''
+Develop the subclasses Fahrenheit, Celsius and Kelvin to appropriately implement each of the methods in the abstract Temperature class. (Note that when a meaningless conversion method is applied, for example, temp1.convertToFahrenheit() where temp1 is an object of type Fahrenheit, then a copy of the Temperature object should be returned.)
 
+Demonstrate the correctness of your classes by doing the following:
+
+Create a list of Temperature objects of a mix of Temperature types
+
+Print out the value of each temperature in the list, and add “above freezing” if the temperature is above freezing (for the specifi c temperature scale).
+
+Create a new list of temperatures containing each temperature of the original list converted to a common temperature scale (Fahrenheit, Celsius, or Kelvin).
+
+For each temperature object in the new list, print out its temperature value, and if it is above the freezing point.
+----------------------------------------
 class temperature:
     def __init__(self, temperature):
         pass
