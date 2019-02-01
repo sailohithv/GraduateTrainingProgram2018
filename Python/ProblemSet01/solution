@@ -4,7 +4,8 @@
 /* <Question from the ProblemSet 01> */
 
 
-1.
+1. Write a program that examines three variables—x, y, and z— and prints the largest odd number among them.
+   If none of them are odd, it should print a message to that effect.
 
 s = raw_input()
 num = map(int, s.split())
@@ -22,12 +23,14 @@ if len(liE)==10:
 elif len(liE)<10:
     print max(liO)
 
-2.
+2. Python provides a built-in function called len that returns the length of a string, so the value of len('Cigna') is 5. 
+   Write a function named right_justify that takes a string named s as a parameter and prints the string with enough leading spaces so that the last letter of the string is in column 70 of the display.
     
 s="cigna"
 print s.rjust(70)
 
-3.
+3. Write a program that asks the user to input 10 integers, and then prints the largest odd number that was entered. 
+   If no odd number was entered, it should print a message to that effect.
 
 s = raw_input()
 num = map(int, s.split())
@@ -46,7 +49,8 @@ elif len(liE)<10:
     print max(liO)
 
 
-5.
+5. Write a program that asks the user to enter an integer and prints two integers, root and pwr, such that 0 < pwr < 6 and
+   root**pwr is equal to the integer entered by the user. If no such pair of integers exists, it should print a message to that effect.
 
 import math
 
@@ -69,7 +73,8 @@ except:
 
 
 
-6.
+6. Let s be a string that contains a sequence of decimal numbers separated by commas, e.g., s = '1.23,2.4,3.123'. 
+   Write a program that prints the sum of the numbers in s.
 
 s=raw_input()
 a=s.replace(','," ")
@@ -80,7 +85,8 @@ for i in b:
 print sum
 
 
-7.
+7. Write a function isIn() that accepts two strings as arguments and returns True if either string occurs anywhere in the other,
+   and False otherwise. Hint: you might want to use the built-in str operation in.
 
 s1=raw_input()
 s2=raw_input()
