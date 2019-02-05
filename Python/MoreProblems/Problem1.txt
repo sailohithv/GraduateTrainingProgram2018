@@ -26,3 +26,17 @@ chris alan
 Sample Output
 -------------
 Chris Alan
+
+
+PROGRAM:
+--------
+
+
+s=raw_input("Enter a name:")
+
+l=s.split()
+nl=[]
+for i in l:
+  new=i.title()     #title function will capitalise first characters in every word of a given string
+  nl.append(new)
+print nl
