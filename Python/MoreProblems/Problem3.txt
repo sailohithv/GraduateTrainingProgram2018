@@ -53,3 +53,19 @@ Sample Output
 Error Code: integer division or modulo by zero
 Error Code: invalid literal for int() with base 10: '$'
 3
+
+
+
+PROGRAM:
+--------
+
+try:
+  a=int(raw_input())
+  b=int(raw_input())
+  c=a/b
+  print c
+except ValueError:
+    print "Error Code: invalid literal for int() with base 10:"
+
+except ZeroDivisionError:
+  print "Error Code: integer division or modulo by zero"
