@@ -40,3 +40,34 @@ Sample Output 2
 ---------------
 
 26.50
+
+
+PROGRAM:
+--------
+
+n=int(raw_input("enter number of records:"))    #number of records to be entered
+li=[]
+l=[]
+di={}
+for i in range(n):  
+  s=raw_input()           #records to be inserted
+  li.append(s)
+  
+res=raw_input()           #result to be fetched
+
+for i in li:
+  l.append(i.split())
+
+for i in l:
+  di[i[0]]=(int(i[1])+int(i[2])+int(i[3]))/3
+
+print di[res]
+
+
+
+
+
+
+
+
+
