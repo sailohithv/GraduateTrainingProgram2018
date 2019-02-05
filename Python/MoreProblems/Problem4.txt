@@ -46,3 +46,30 @@ Sample Output
 [6, 5, 10]
 [1, 5, 9, 10]
 [9, 5, 1]
+
+
+
+
+PROGRAM:
+--------
+
+
+n=int(raw_input())
+nl=[1,2,3,4,5]
+for i in range(n):
+  s=raw_input()
+  l=s.split()
+  if l[0]=="insert":
+    nl.insert(int(l[1]),int(l[2]))
+  if l[0]=="print":
+    print nl
+  if l[0]=="remove":
+    nl.remove(int(l[1]))
+  if l[0]=="append":
+    nl.append(int(l[1]))
+  if l[0]=="sort":
+    nl.sort()
+  if l[0]=="reverse":
+    nl.reverse()
+  if l[0]=="pop":
+    nl.pop()
