@@ -1,1 +1,70 @@
+---8 FEB,2019---
+
+create table student(id int,name varchar(10));
+
+insert into student values(1,'vsl');
+insert into student values(2,'bk');
+insert into student values(3,'yashu');
+insert into student values(4,'kavya');
+insert into student values(5,'harsha');
+insert into student values(6,'katta');
+
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | vsl    |
+|    2 | yashu  |
+|    3 | bk     |
+|    4 | kavya  |
+|    5 | katta  |
+|    6 | harsha |
++------+--------+
+
+create table marks(id int,sem varchar(5),eng int,math int,french int,SS int);
+
+
+insert into marks values(1,'s1',50,60,40,70);
+insert into marks values(2,'s1',60,70,80,90);
+insert into marks values(3,'s2',40,50,80,50);
+insert into marks values(4,'s3',50,94,51,60);
+
++------+------+------+------+--------+------+
+| id   | sem  | eng  | math | french | SS   |
++------+------+------+------+--------+------+
+|    1 | s1   |   50 |   60 |     40 |   70 |
+|    2 | s1   |   60 |   70 |     80 |   90 |
+|    3 | s2   |   40 |   50 |     80 |   50 |
+|    4 | s3   |   50 |   94 |     51 |   60 |
+|    5 | S1   |   60 |   70 |     80 |   90 |
++------+------+------+------+--------+------+
+
+
+Question:
+A query to retrive the result, if a student scores more than 50 in every subject and rank them according to their total(if they pass)
+
+select id,name,sem,total,Result,@c:=@c+1 as rank from(SELECT s.id,s.name,m.sem as sem,m.math as MATHs,m.eng as ENGLISH,m.french as SCIENCE ,m.SS as SOCIAL,IF(m.math>=50 and m.eng>=50 and m.french>=50 and m.SS>=50, 'PASS','FAIL') as Result,(m.math + m.eng + m.french + m.SS ) AS Total FROM student s join marks m on m.id=s.id)as R  where result='pass' order by total desc;
+
++------+-------+------+-------+--------+----------+
+| id   | name  | sem  | total | Result |   rank   |
++------+-------+------+-------+--------+----------+
+|    2 | yashu | s1   |   300 | PASS   |        1 |
+|    5 | katta | S1   |   300 | PASS   |        2 |
+|    4 | kavya | s3   |   255 | PASS   |        3 |
++------+-------+------+-------+--------+----------+
+
+Question:
+A query to fetch the result of a student even if they fail
+
+select id,name,sem,total,Result,@c:=@c+1 as rank from(SELECT s.id,s.name,m.sem as sem,m.math as MATHs,m.eng as ENGLISH,m.french as SCIENCE ,m.SS as SOCIAL,IF(m.math>=50 and m.eng>=50 and m.french>=50 and m.SS>=50, 'PASS','FAIL') as Result,(m.math + m.eng + m.french + m.SS ) AS Total FROM student s join marks m on m.id=s.id)as R order by total desc;
+
++------+-------+------+-------+--------+----------+
+| id   | name  | sem  | total | Result |   rank   |
++------+-------+------+-------+--------+----------+
+|    2 | yashu | s1   |   300 | PASS   |        1 |
+|    5 | katta | S1   |   300 | PASS   |        2 |
+|    4 | kavya | s3   |   255 | PASS   |        3 |
+|    1 | vsl   | s1   |   220 | FAIL   |        4 |
+|    3 | bk    | s2   |   220 | FAIL   |        5 |
++------+-------+------+-------+--------+----------+
+
 
