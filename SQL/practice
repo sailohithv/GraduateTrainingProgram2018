@@ -1,3 +1,103 @@
+---6 FEB,2019---
+
+persons
+
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| pid   | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(12) | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
++-----+--------+------+
+| pid | name   | age  |
++-----+--------+------+
+|   1 | vsl    |   22 |
+|   2 | bk     |   23 |
+|   3 | yashu  |   21 |
+|   4 | kavya  |   22 |
+|   5 | harsha |   22 |
+|   6 | katta  |   22 |
++-----+--------+------+
+
+products
+
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| pid   | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(12) | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
++-------+-------------+-------+----------+
+| prdid | pname       | price | quantity |
++-------+-------------+-------+----------+
+| c1    | dairymilk   |    50 |      100 |
+| c2    | 5_STAR      |    20 |      500 |
+| ck1   | pineapple   |   400 |       10 |
+| ck2   | blackforest |   600 |        5 |
+| p1    | vpuff       |    15 |       30 |
+| p2    | epuff       |    20 |       40 |
++-------+-------------+-------+----------+
+
+orders
+
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| oid   | int(11)     | NO   | PRI | NULL    |       |
+| pid   | int(11)     | YES  | MUL | NULL    |       |
+| prdid | varchar(12) | YES  | MUL | NULL    |       |
+| doo   | date        | YES  |     | NULL    |       |
+| dod   | date        | YES  |     | NULL    |       |
+| bill  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
++-----+------+-------+------------+------------+------+
+| oid | pid  | prdid | doo        | dod        | bill |
++-----+------+-------+------------+------------+------+
+|  11 |    4 | p1    | 2019-01-30 | 2019-02-01 |   60 |
+|  12 |    5 | p2    | 2019-01-25 | 2019-01-28 |  100 |
+|  13 |    3 | ck1   | 2019-01-01 | 2019-01-02 | 1200 |
+|  14 |    1 | ck2   | 2019-01-16 | 2019-01-18 |  600 |
+|  15 |    2 | ck2   | 2019-01-14 | 2019-01-16 | 1200 |
+|  16 |    6 | c1    | 2019-02-14 | 2019-02-16 |  200 |
++-----+------+-------+------------+------------+------+
+
+
+Question
+
+A query to fetch the name of the product which is sold at high quantity in a given month
+
+ select pname from products where prdid=(select prdid from(select p.prdid,o.bill/p.price as qty from orders o inner join products p on o.prdid=p.prdid group by p.prdid order by qty desc limit 1)as t);
+ 
+ +-------+
+| pname |
++-------+
+| epuff |
++-------+
+
+
+Question
+
+A query to fetch the name of the product which is sold at high quantity in a given month
+
+select pname from products where prdid=(select prdid from(select p.prdid,o.bill/p.price as qty from orders o inner join products p on o.prdid=p.prdid where doo like "%-02-%" group by p.prdid order by qty desc limit 1)as t);
+
++-----------+
+| pname     |
++-----------+
+| dairymilk |
++-----------+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ---8 FEB,2019---
 
 create table student(id int,name varchar(10));
